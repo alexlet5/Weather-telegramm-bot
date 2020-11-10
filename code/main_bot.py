@@ -1,5 +1,4 @@
 import telebot
-import random
 import pyowm.commons.exceptions as ex
 import re
 

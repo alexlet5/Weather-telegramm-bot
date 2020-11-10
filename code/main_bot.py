@@ -25,8 +25,6 @@ def cheking_message(message):
 def get_help(message):
     bot.send_message(
         message.chat.id, "Просто напишите точное имя города на русском языке и бот напишет примерную погоду.")
-    bot.send_message(
-        message.chat.id, "")
 
 
 @bot.message_handler(commands=['start'])

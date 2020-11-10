@@ -7,13 +7,18 @@ import weather as we
 
 bot = telebot.TeleBot('1450627779:AAHg-42ELxZ30z-dlIyhKX8T2qvQkSOqIw0')
 
-users = []
-
 
 def text_shortener(text):
     if(len(text) > 20):
         return text[0:19] + "..."
     return text
+
+
+def cheking_message(message):
+    if re.fullmatch('[0-9]*', message):
+        bot.send_message(message.chat.id, 'Некоректное название города.')
+        return False
+    return True
 
 
 @bot.message_handler(commands=['help'])
@@ -32,8 +37,8 @@ def start(message):
 @bot.message_handler(content_types=['text'])
 def weather(message):
     print(message.text + " - " + str(len(message.text)))
-    if re.fullmatch('[0-9]*', message.text):
-        bot.send_message(message.chat.id, 'Некоректное название города.')
+
+    if not cheking_message(message.text):
         return
 
     places_list = []

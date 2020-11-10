@@ -1,2 +1,2 @@
-# test_telegramm_bot
- test telegramm bot on python
+# Очень простой телеграмм бот о погоде
+Использует pyowm и telebot фреймворки.
